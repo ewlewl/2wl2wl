@@ -165,7 +165,7 @@ $ ps [option]
 | PRI | 실제 실행 우선순위 |
 | NI | nice 우선순위 번호 |
 
-#### System V 계열
+#### PS 명령어 옵션
 
 | 옵션        | 설명                                                                                           |
 | ---------- | :----------------------------------------------------------------------------------------------|
@@ -181,4 +181,86 @@ $ ps [option]
 | -r         | 현재 실행 중인 프로세서를 보여줌 |
 | -u         | 특정 사용자의 프로세스 정보를 확인할 때 사용, 사용자를 지정하지 않으면 혅 ㅐ사용자를 기준으로 정보를 출력 |
 | -x         | 로그인 상태에 있는 동안 아직 완료되지 않은 프로세스들을 보여줌. -x 옵션을 통해, 자신의 터미널이 없는 프로세서들을 확인할 수 있음.|
+
+#### 사용 예
+
+##### 보통 많이 사용되는 명령어
+System V
+
+```bash
+$ ps -ef | grep [프로세스명]
+```
+
+-ef 옵션은 동작 중인 모든 프로세스를 소유자 정보와 함께 풀 포맷으로 출력하는 명령어
+
+![image](https://github.com/ewlewl/2wl2wl/assets/166885748/56c72dee-e5e0-4e63-9948-461419797e9d)
+
+BSD
+
+```bash
+$ ps aux | grep [프로세스명]
+```
+
+aux는 동작 중인 모든 프로세스를 소유자 정보와 함께 다양한 정보를 출력하는 옵션
+
+![image](https://github.com/ewlewl/2wl2wl/assets/166885748/d625145a-5fee-46e4-94de-320b873d3646)
+
+---
+
+```bash
+$ ps -el
+```
+프로세스의 정보가 긴 포맷으로 출력 됨. -ef옵션에서 보지 못한 F, S, PRI, NI 등 다양한 정보가 출력됨.
+
+![image](https://github.com/ewlewl/2wl2wl/assets/166885748/b8bd5aff-017d-4d30-98f0-ac58d350983b)
+
+---
+
+```bash
+$ ps -t [tty명]
+```
+특정 TTY에서 실행되는 프로세스를 출력할 수 있음.
+
+![image](https://github.com/ewlewl/2wl2wl/assets/166885748/b041372e-7c5e-4d08-9f34-902c562c0c3f)
+
+---
+
+```bash
+$ ps -p [프로세스 번호]
+```
+특정 프로세스 번호를 이용하여 해당 프로세스 정보를 출력함.
+
+![image](https://github.com/ewlewl/2wl2wl/assets/166885748/7c3d465b-01f0-4f72-b8fc-eaa19cd23ba4)
+
+---
+
+```bash
+$ ps -u[사용자명]
+```
+특정 사용자의 프로세스 정보 출력
+
+![image](https://github.com/ewlewl/2wl2wl/assets/166885748/27845f41-4d5e-453c-bec0-45ed90ea0d28)
+
+---
+
+```bash
+$ ps -ef | more
+```
+ps -ef와 같은 많은 프로세스의 목록을 출력할 때는 more 명령어를 사용하면 좀 더 가독성이 좋아짐.
+
+![image](https://github.com/ewlewl/2wl2wl/assets/166885748/e7964421-10a7-4f0e-b5d9-8b6584b7a352)
+more 명령어 사용 시 페이지 단위로 목록 출력
+
+---
+
+```bash
+$ ps -ef | grep [키워드]
+```
+grep 명령어를 이용해서 특정 키워드를 가진 행을 출력함.
+
+![image](https://github.com/ewlewl/2wl2wl/assets/166885748/6cc6f854-96cd-47d3-b36c-5208a2bbf0a8)
+
+---
+
+## jobs 명령어
 
